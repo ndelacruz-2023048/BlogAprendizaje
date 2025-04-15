@@ -1,0 +1,16 @@
+{
+  "name": "blogaprendizajebackend",
+  "version": "1.0.0",
+  "description": "a place where you can see kinal posts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog",
+    "system",
+    "comunnity"
+  ],
+  "author": "Nery de la Cruz (ND)",
+  "license": "MIT"
+}
