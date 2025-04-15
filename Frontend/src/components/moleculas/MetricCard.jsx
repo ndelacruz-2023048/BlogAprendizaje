@@ -11,8 +11,6 @@ export const MetricCard = ({value,title,left,bottom}) => {
 }
 
 const Container = styled.div`
-
-    
         border-bottom: none;
         padding-bottom: 0;
         &::after{

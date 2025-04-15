@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { ProfileCard } from "../organismos/Home/ProfileCard"
 import { Device } from "../../styles/Breakpoints"
+import { ContentSection } from "../organismos/Home/ContentSection"
 
 export const HomeTemplate=()=>{
     return(
@@ -8,6 +9,7 @@ export const HomeTemplate=()=>{
             <Header/>
             <Main>
                 <ProfileCard/>
+                <ContentSection/>
             </Main>
         </Container>
     )
@@ -19,8 +21,8 @@ const Container = styled.div`
     align-items: center;
     gap: 30px;
     width: 100%;
-    background-color: #d7d7d7;
-    height: 100vh;
+    background-color: #efefef;
+    height: 100%;
 `
 
 const Header = styled.div`
@@ -31,7 +33,10 @@ const Header = styled.div`
 
 const Main = styled.div`
     display: flex;
+    flex-direction: column;
+    gap: 30px;
     width: 100%;
+    margin-bottom: 20px;
     @media ${Device.tablet}{
         width: 80%;
     }
