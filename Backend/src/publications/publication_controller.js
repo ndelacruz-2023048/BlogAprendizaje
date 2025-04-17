@@ -3,18 +3,35 @@ import {v2 as cloudinary} from 'cloudinary'
 import {unlink} from 'fs/promises'//Eliminar archivos
 import {join} from 'path'//Unir carpetas o archivos o carpetas
 import Publication from './publication_model.js'
-export const getPublications = (request,response)=>{
-    cloudinary.config({
-        cloud_name:process.env.CLOUDINARY_NAME,
-        secure:true
-    })
-
-    const url = cloudinary.url('128120_916f02d6dec04c2398c216df0e14a3b6_mv2_simjhf')
-
-
+import { log } from 'console'
+import { loadavg } from 'os'
+export const getPublications = async(request,response)=>{
     try {
+        const all = await Publication.find()
+        const taller = await Publication.find({typeClass:"taller"})
+        const tecnologia = await Publication.find({typeClass:"tecnologia"})
+        const practica = await Publication.find({typeClass:"practica"})
         
-        response.status(200).send({success:true,message:"Publications list",url})
+        
+        response.status(200).send({success:true,message:"Publications list",data:all,taller,tecnologia,practica})
+    } catch (error) {
+        console.error(error)
+        return response.status(500).send({message:'General error sending publications'})
+    }
+}
+
+export const getFilteredPublications = async(request,response)=>{
+    try {
+        const {typeClass,datePublication,titlePublication} = request.query
+        const filterByName = {}
+        const filterByOrder = {}
+        if(typeClass) filterByName.typeClass = typeClass
+        if(datePublication) filterByOrder.datePublication = datePublication === "asc" ?1:-1
+        if(titlePublication) filterByOrder.titlePublication = titlePublication === "asc" ?1:-1
+        console.log(filterByName,filterByOrder);
+        const data = await Publication.find(filterByName).sort(filterByOrder)
+        
+        response.status(200).send({success:true,message:"Publications list",data})
     } catch (error) {
         console.error(error)
         return response.status(500).send({message:'General error sending publications'})
@@ -27,12 +44,18 @@ export const newPublication =async (request,response)=>{
         api_key:process.env.CLOUDINARY_API_KEY,
         api_secret:process.env.CLOUDINARY_API_SECRET
     })
+    console.log(request.body);
+    const data = request.body
+
     try {
+        const publication = new Publication(data)
         const filePath = join(request.filePath,request.file.filename)
         const results = await cloudinary.uploader.upload(filePath)
         const url = cloudinary.url(results.public_id)
-        log
-        await unlink(filePath)
+        publication.imagePublication = url
+        await publication.save()
+        
+        // await unlink(filePath)
         response.status(200).send({success:true,message:"New publication"})
     } catch (error) {
         console.error(error)

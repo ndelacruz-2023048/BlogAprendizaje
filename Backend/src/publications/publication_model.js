@@ -23,7 +23,7 @@ const publicationSchema = Schema({
     },
     typeClass:{
         type:String,
-        enum:['taller,tecnologia,practica']
+        enum:['taller','tecnologia','practica']
     },
     datePublication:{
         type:Date,

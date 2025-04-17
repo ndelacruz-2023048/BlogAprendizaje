@@ -4,14 +4,16 @@ import { MetricCard } from "../../moleculas/MetricCard"
 import { Device } from "../../../styles/Breakpoints"
 import Gorra from "../../../assets/gorrarkinal.avif"
 import { IconSocialMedia } from "../../atomos/IconSocialMedia"
+import usePublicationStore from "../../../../stores/PublicationStore"
 export const ProfileCard = ()=>{
+    const {publications}= usePublicationStore()
     return(
         <Container>
             <Main>
                 <Section1>
                     <StatsPanel>
                         <ContainerMetrics>
-                            <MetricCard value={350} title={"Posts"} left='30%' bottom='25%'/>
+                            <MetricCard value={publications?.data?.length} title={"Posts"} left='30%' bottom='25%'/>
                             <MetricCard value={150} title={"Comments"}left='70%' bottom='25%'/>
                             <MetricCard value={56} title={"Likes"}/>
                         </ContainerMetrics>

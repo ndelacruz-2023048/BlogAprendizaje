@@ -1,8 +1,49 @@
 import styled from "styled-components"
+import usePublicationStore from "../../../stores/PublicationStore";
 
-export const BtnFilter = ({text,value,state})=>{
+export const BtnFilter = ({name,text,value,state})=>{
+
+    const {activeTypeClass,
+        setActiveTypeClass,
+        atributesToFilterObject,
+        setAtributesToFilterObject,
+        fetchFilteredPublications,
+        atributesToFilter,
+        setAtributeToFilter} = usePublicationStore()
+    let newListAtributes=[]
+    const handleClick = (e)=>{
+        let objeto={}
+        if(e.currentTarget.name!=="all"){
+            const atributesFilterArray = [...atributesToFilter]
+            const newAtributes = atributesFilterArray.filter((e)=>{
+                if(Object.keys(e)[0]!=='typeClass'){
+                    return e
+                }
+            })
+            newAtributes.push({["typeClass"]:e.currentTarget.name})
+            setAtributeToFilter(newAtributes)
+            setAtributesToFilterObject({...atributesToFilterObject,["typeClass"]:e.currentTarget.name})
+            fetchFilteredPublications()
+
+        }else{
+            const atributesFilterArray = [...atributesToFilter]
+            const newAtributes = atributesFilterArray.filter((e)=>{
+                if(Object.keys(e)[0]!=='typeClass'){
+                    return e
+                }
+            })
+            setAtributeToFilter(newAtributes)
+            delete atributesToFilterObject.typeClass
+            fetchFilteredPublications()
+        }
+        setActiveTypeClass(e.currentTarget.name)
+        
+        
+    }
+
+    
     return(
-        <Button className={state ? "active" : ""}>
+        <Button name={name}  onClick={handleClick} className={state ? "active" : ""}>
             <Text>{text}</Text>
             <Value className="number">{value}</Value>
         </Button>

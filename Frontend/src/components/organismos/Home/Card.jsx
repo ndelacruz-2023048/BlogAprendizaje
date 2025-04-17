@@ -2,14 +2,14 @@ import styled from "styled-components"
 import card_blog from '../../../assets/card_blog.jpg'
 import { EngagementButton } from "../../moleculas/EngagementButton"
 import { Device } from "../../../styles/Breakpoints"
-export const Card = () => {
+export const Card = ({titlePublication,shortDescription,imagePublication}) => {
     return (
         <Container>
             <Section>
-                <Image src={card_blog} alt="Card Image" />
+                <Image src={imagePublication} alt="Card Image" />
                 <Detail>
-                    <Title>Card Title</Title>
-                    <Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Description>
+                    <Title>{titlePublication}</Title>
+                    <Description>{shortDescription}</Description>
                     <Info>
                         <EngagementButton icon="lets-icons:comment-light" value={5} text="comments" sizeIcon="20px"/>
                         <EngagementButton icon="icon-park-outline:like" value={5} text="likes" sizeIcon="15px"/>
