@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { ProfileCard } from "../organismos/Home/ProfileCard"
 import { Device } from "../../styles/Breakpoints"
 import { ContentSection } from "../organismos/Home/ContentSection"
+import { Comments } from "../organismos/Comments/Comments"
 
 export const HomeTemplate=()=>{
     return(
@@ -10,6 +11,7 @@ export const HomeTemplate=()=>{
             <Main>
                 <ProfileCard/>
                 <ContentSection/>
+                <Comments/>
             </Main>
         </Container>
     )

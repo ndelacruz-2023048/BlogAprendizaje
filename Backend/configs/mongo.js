@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { defaultPublications } from '../src/publications/publication_controller.js'
 
 //Función de conexión
 export const connect = async()=>{
@@ -31,6 +32,7 @@ export const connect = async()=>{
                 serverSelectionTimeoutMS: 5000 //Tiempo máximo que espera la conexión
             }
         )
+        defaultPublications()
     }catch(err){
         console.error('Database connection failed', err)
     }
