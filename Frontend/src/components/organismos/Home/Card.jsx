@@ -27,7 +27,7 @@ const Container = styled.div`
     height: 350px;
     border: 1px solid rgba(111, 111, 111, 0.2);
     border-radius: 10px;
-    @media ${Device.tablet}{
+    @media ${Device.laptop}{
         width: 45%;
         margin: 0;
     }

@@ -62,3 +62,15 @@ export const newPublication =async (request,response)=>{
         return response.status(500).send({message:'General error sending publications'})
     }
 }
+
+export const getPublicationById = async(request,response)=>{
+    const params = request.params
+    try {
+        console.log(params);
+        
+        response.status(200).send({success:true})
+    } catch (error) {
+        console.error(error)
+        return response.status(500).send({message:'General error sending publications'})
+    }
+}

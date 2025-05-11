@@ -44,7 +44,7 @@ const Container = styled.div`
 `
 
 const Main = styled.div`
-margin: auto;
+    margin: auto;
     height: 95%;
     width: 95%;
 `

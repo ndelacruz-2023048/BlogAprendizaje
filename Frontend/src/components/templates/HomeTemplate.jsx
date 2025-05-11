@@ -41,6 +41,9 @@ const Main = styled.div`
         width: 80%;
     }
     @media ${Device.laptop}{
-        width: 60%;
+        width: 90%;
+    }
+    @media ${Device.desktop}{
+        width: 80%;
     }
 `

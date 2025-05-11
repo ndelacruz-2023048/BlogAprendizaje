@@ -74,7 +74,7 @@ const Section2 = styled.div`
     height: 680px;
     width: 90%;
     overflow-y: scroll;
-    @media ${Device.tablet}{
+    @media ${Device.laptop}{
         flex-direction: row;
         flex-wrap: wrap;
     }
