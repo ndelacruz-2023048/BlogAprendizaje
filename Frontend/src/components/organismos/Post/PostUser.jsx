@@ -2,17 +2,17 @@ import styled from "styled-components"
 import gorrarkinal from '../../../assets/gorrarkinal.avif'
 import { Circle } from "../../atomos/Circle"
 import { Device } from "../../../styles/Breakpoints"
-export const PostUser =()=>{
+export const PostUser =({date,author})=>{
     return(
         <Container>
             <Image src={gorrarkinal}/>
             <ProfileDescription>
                 <Section1>
-                    <UserName>Nery de la Cruz</UserName>
+                    <UserName>{author}</UserName>
                 </Section1>
                 <Section2>
                     <TextPosted className="descriptionUser">Posted: </TextPosted>
-                    <DatePosted className="descriptionUser">Jan 05, 2024</DatePosted>
+                    <DatePosted className="descriptionUser">{date}</DatePosted>
                     <Circle circleWidth="5px" circleHeight="5px" circleColor="#ababab" />
                     <TimeReading className="descriptionUser">5 mins read</TimeReading>
                 </Section2>

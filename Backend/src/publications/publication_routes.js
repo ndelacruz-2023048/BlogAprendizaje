@@ -6,7 +6,7 @@ import { deleteFileOnError } from "../../middlewares/delete.file.on.errors.js";
 const publication = Router()
 publication.get('/publication',getPublications)
 publication.get('/publication/filter',getFilteredPublications)
-publication.get('/publication/:idPublication',getPublicationById)
+publication.get('/publicationbyid/:idPublication',getPublicationById)
 publication.post('/publication/new',uploadProfilePicture.single('imagePublication'),deleteFileOnError,newPublication)
 
 export default publication

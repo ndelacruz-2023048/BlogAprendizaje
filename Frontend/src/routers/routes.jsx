@@ -2,14 +2,17 @@ import {createBrowserRouter, RouterProvider} from 'react-router'
 import { HomePage } from '../pages/HomePage'
 import { PostPage } from '../pages/PostPage'
 
+
 const router = createBrowserRouter([
     {
         path:'/',
         element: <HomePage/>
     },
     {
-        path:'/post',
-        element:<PostPage/>
+        path:'/post/:id',
+        element:(
+             <PostPage/>
+        )
     }
 ])
 

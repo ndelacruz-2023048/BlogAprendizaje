@@ -5,6 +5,7 @@ import { Card } from "./Card"
 import { Device } from "../../../styles/Breakpoints"
 import { use, useEffect } from "react"
 import usePublicationStore from "../../../../stores/PublicationStore"
+import { useNavigate } from "react-router"
 export const ContentSection =() => {
     const {
         filteredPublications,
@@ -19,8 +20,11 @@ export const ContentSection =() => {
         fetchPublications()
     },[])
     
-    
+    const navigation = useNavigate()
 
+    const handlePostClick = (id)=>{
+        navigation(`/post/${id}`)
+    }
     return(
         <Container>
             <Section1>
@@ -39,7 +43,7 @@ export const ContentSection =() => {
                     <h1>Cargando...</h1>
                 ):(
                     filteredPublications?.data?.map((publication)=>(
-                        <Card titlePublication={publication.titlePublication} shortDescription={publication.shortDescription} imagePublication={publication.imagePublication}/>
+                        <Card id={publication._id} onEventClick={handlePostClick}  titlePublication={publication.titlePublication} shortDescription={publication.shortDescription} imagePublication={publication.imagePublication}/>
                     ))
                 )} 
             </Section2>

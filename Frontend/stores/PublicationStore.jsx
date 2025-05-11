@@ -10,6 +10,7 @@ const usePublicationStore = create((set,get)=>({
     isLoadingPublications:false,
     isLoadingFilteredPublications:false,
     paramsFiltersPublications:{},
+    postById:{},
     fetchFilteredPublications:async ()=>{
         try {  
             const {atributesToFilterObject} = get()
@@ -33,6 +34,16 @@ const usePublicationStore = create((set,get)=>({
             
         }
     },
+    fetchPostById:async (postId)=>{
+        try {
+            const response = await fetch(`http://localhost:2636/publicationbyid/${postId}`)
+            const data = await response.json()
+            set({postById:data})
+            return data
+        } catch (error) {
+            console.log('Error fetching post by id',error);
+        }
+    },
     setOpenFilter:()=>{
         const {isOpenFilters} = get()
         set(()=>({isOpenFilters:isOpenFilters===true?false:true}))
@@ -48,6 +59,9 @@ const usePublicationStore = create((set,get)=>({
     },
     setActiveTypeClass:(p)=>{
         set(()=>({activeTypeClass:p}))
+    },
+    setPostById:(p)=>{
+        set(()=>({postById:p}))
     }
 }))
 

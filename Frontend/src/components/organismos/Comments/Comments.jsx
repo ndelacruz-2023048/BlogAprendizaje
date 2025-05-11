@@ -34,9 +34,9 @@ export const Comments = () => {
 const Container = styled.div`
     background-color: white;
     border-radius: 20px;
-    height: 500px;
     display: flex;
     align-items: center;
+    width: 63%;
     .containercenter{
         display: flex;
         flex-direction: column;

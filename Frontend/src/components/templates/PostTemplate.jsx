@@ -3,6 +3,7 @@ import { Post } from "../organismos/Post/Post"
 import { Icon } from "@iconify/react/dist/iconify.js"
 import { Device } from "../../styles/Breakpoints"
 import { NavLink } from "react-router"
+import { Comments } from "../organismos/Comments/Comments"
 
 export const PostTemplate = ()=>{
     return(
@@ -22,7 +23,7 @@ export const PostTemplate = ()=>{
                 </IconContainer>
             </MenuPost>
             <Post/>
-
+            <Comments/>
         </Container>
     )
 }

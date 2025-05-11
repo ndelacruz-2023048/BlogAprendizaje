@@ -2,9 +2,16 @@ import styled from "styled-components"
 import card_blog from '../../../assets/card_blog.jpg'
 import { EngagementButton } from "../../moleculas/EngagementButton"
 import { Device } from "../../../styles/Breakpoints"
-export const Card = ({titlePublication,shortDescription,imagePublication}) => {
+export const Card = ({titlePublication,shortDescription,imagePublication,onEventClick,id}) => {
+    
+    const handleSeePostClick = (event)=>{
+        event.stopPropagation()
+        onEventClick(id)
+    }
+
+
     return (
-        <Container>
+        <Container onClick={handleSeePostClick}>
             <Section>
                 <Image src={imagePublication} alt="Card Image" />
                 <Detail>

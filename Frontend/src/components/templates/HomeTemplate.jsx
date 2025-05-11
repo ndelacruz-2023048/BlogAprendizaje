@@ -11,7 +11,6 @@ export const HomeTemplate=()=>{
             <Main>
                 <ProfileCard/>
                 <ContentSection/>
-                <Comments/>
             </Main>
         </Container>
     )
