@@ -2,10 +2,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { UserComment } from './userComment'
+import { useCommentStore } from '../../../../stores/CommentStore'
+import { UserForm } from '../Forms/UserForm'
 
 export const Comments = () => {
+
+    const {isFormCommentOpen,setIsFormCommentOpen} = useCommentStore()
+
   return (
     <Container>
+        {isFormCommentOpen && <UserForm/>}
         <div className='containercenter'>
             <section className='titlesection'>
                 <h2 className='titlesection_title'>Comments</h2>
@@ -17,7 +23,7 @@ export const Comments = () => {
                     <span className='usernewcomment_name'>Faurok O.</span>
                 </div>
                 <div className='inputnewcomment'>
-                    <input type="text" className='inputnewcomment_input' placeholder='Share your throughts'/>
+                    <input type="text" className='inputnewcomment_input' placeholder='Share your throughts' onClick={()=>setIsFormCommentOpen()}/>
                 </div>
             </section>
             <section className='commentslist'>
@@ -36,7 +42,7 @@ const Container = styled.div`
     border-radius: 20px;
     display: flex;
     align-items: center;
-    width: 63%;
+    width: 100%;
     .containercenter{
         display: flex;
         flex-direction: column;

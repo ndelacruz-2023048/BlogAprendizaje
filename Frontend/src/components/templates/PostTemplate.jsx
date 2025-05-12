@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react/dist/iconify.js"
 import { Device } from "../../styles/Breakpoints"
 import { NavLink } from "react-router"
 import { Comments } from "../organismos/Comments/Comments"
-
+import {Element, Link} from "react-scroll"
 export const PostTemplate = ()=>{
     return(
         <Container>
@@ -13,9 +13,11 @@ export const PostTemplate = ()=>{
                 <IconContainer>
                     <Icon icon="lets-icons:favorite-light" className="icon"/>
                 </IconContainer>
-                <IconContainer>
-                    <Icon icon="mdi-light:comment" className="icon"/>
-                </IconContainer>
+                <Link to="commentssection" smooth={true} duration={500}>
+                    <IconContainer>
+                        <Icon icon="mdi-light:comment" className="icon"/>
+                    </IconContainer>
+                </Link>
                 <IconContainer>
                     <NavLink to="/">
                         <Icon icon="octicon:home-24" className="icon"/>
@@ -23,7 +25,9 @@ export const PostTemplate = ()=>{
                 </IconContainer>
             </MenuPost>
             <Post/>
-            <Comments/>
+            <Element name="commentssection" className="commentscroll">
+                <Comments/>
+            </Element>
         </Container>
     )
 }
@@ -35,6 +39,9 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     gap: 50px;
+    .commentscroll{
+        width: 63%;
+    }
 `
 const HeaderStyle = styled.div`
     width: 100%;
