@@ -5,8 +5,10 @@ import { Device } from "../../../styles/Breakpoints"
 import Gorra from "../../../assets/gorrarkinal.avif"
 import { IconSocialMedia } from "../../atomos/IconSocialMedia"
 import usePublicationStore from "../../../../stores/PublicationStore"
+import { useCommentStore } from "../../../../stores/CommentStore"
 export const ProfileCard = ()=>{
     const {publications}= usePublicationStore()
+    const {allComments} = useCommentStore()
     return(
         <Container>
             <Main>
@@ -14,8 +16,8 @@ export const ProfileCard = ()=>{
                     <StatsPanel>
                         <ContainerMetrics>
                             <MetricCard value={publications?.data?.length} title={"Posts"} left='30%' bottom='25%'/>
-                            <MetricCard value={150} title={"Comments"}left='70%' bottom='25%'/>
-                            <MetricCard value={56} title={"Likes"}/>
+                            <MetricCard value={allComments?.data?.length} title={"Comments"}left='70%' bottom='25%'/>
+                            <MetricCard value="soon" title={"Likes"}/>
                         </ContainerMetrics>
                     </StatsPanel>
                 </Section1>

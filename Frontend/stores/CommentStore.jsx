@@ -32,5 +32,16 @@ export const useCommentStore = create((set,get)=>({
             console.log('Error fetching post by id',error);
         }
     },
+    allComments:[],
+    fetchComments:async ()=>{
+        try {
+            const response = await fetch(`http://localhost:2636/comment`)
+            const data = await response.json()
+            set({allComments:data})
+            return data
+        } catch (error) {
+            console.log('Error fetching post by id',error);
+        }
+    },
 }))
 

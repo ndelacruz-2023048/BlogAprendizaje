@@ -1,6 +1,7 @@
 import { Icon } from "@iconify/react/dist/iconify.js"
 import styled from "styled-components"
 import usePublicationStore from "../../../stores/PublicationStore"
+import { Device } from "../../styles/Breakpoints"
 export const BtnFilter2 = ()=>{
     const {
         isOpenFilters,
@@ -103,16 +104,19 @@ const BoxFilters = styled.div`
             cursor: pointer;
         }
     }
-
+    
     &.active{
         display: flex;
-        width: 25%;
+        width: 60%;
         height: 150px;
         background-color: #fff;
         border: 1px solid rgba(111, 111, 111, 0.2);
         border-radius: 20px;
         opacity: 1;
         transition: all 0.3s ease-in-out;
+        @media ${Device.laptop}{
+            width: 25%;
+        }
     }
 `
 

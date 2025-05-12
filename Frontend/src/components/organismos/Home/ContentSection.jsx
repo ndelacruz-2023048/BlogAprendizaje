@@ -21,7 +21,8 @@ export const ContentSection =() => {
     },[])
     
     const navigation = useNavigate()
-
+    console.log(filteredPublications);
+    
     const handlePostClick = (id)=>{
         navigation(`/post/${id}`)
     }
@@ -82,12 +83,16 @@ const Section2 = styled.div`
         flex-direction: row;
         flex-wrap: wrap;
     }
-`
+    `
 
 const FilterCourses = styled.div`
     display: flex;
-    align-items: center;
+    overflow-x: scroll;
     gap: 5px;
+    @media ${Device.laptop}{
+        align-items: center;
+        overflow-x: visible;
+    }
 `
 
 const Filters = styled.div`

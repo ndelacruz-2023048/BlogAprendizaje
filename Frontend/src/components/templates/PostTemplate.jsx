@@ -10,9 +10,6 @@ export const PostTemplate = ()=>{
         <Container>
             <HeaderStyle/>
             <MenuPost>
-                <IconContainer>
-                    <Icon icon="lets-icons:favorite-light" className="icon"/>
-                </IconContainer>
                 <Link to="commentssection" smooth={true} duration={500}>
                     <IconContainer>
                         <Icon icon="mdi-light:comment" className="icon"/>

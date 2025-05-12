@@ -24,5 +24,16 @@ export const newComment =async (request,response)=>{
     }
 }
 
+export const getComments = async(request,response)=>{
+    try {
+        const comments = await Comment.find()
+        response.status(200).send({success:true,message:"Comments list",data:comments})
+    } catch (error) {
+        console.error(error)
+        return response.status(500).send({message:'General error sending comments'})
+    }
+}
+
+
 
 

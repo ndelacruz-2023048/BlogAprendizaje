@@ -18,8 +18,8 @@ export const Card = ({titlePublication,shortDescription,imagePublication,onEvent
                     <Title>{titlePublication}</Title>
                     <Description>{shortDescription}</Description>
                     <Info>
-                        <EngagementButton icon="lets-icons:comment-light" value={5} text="comments" sizeIcon="20px"/>
-                        <EngagementButton icon="icon-park-outline:like" value={5} text="likes" sizeIcon="15px"/>
+                        {/* <EngagementButton icon="lets-icons:comment-light" value={5} text="comments" sizeIcon="20px"/>
+                        <EngagementButton icon="icon-park-outline:like" value={5} text="likes" sizeIcon="15px"/> */}
                     </Info>
                 </Detail>
             </Section>

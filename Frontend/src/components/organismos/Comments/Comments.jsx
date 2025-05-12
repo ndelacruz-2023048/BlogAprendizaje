@@ -56,7 +56,7 @@ export const Comments = () => {
         <div className='containercenter'>
             <section className='titlesection'>
                 <h2 className='titlesection_title'>Comments</h2>
-                <span className='titlesection_number'>120</span>
+                <span className='titlesection_number'> {commentsByPostId?.data?.length||0}</span>
             </section>
             <section className='newcomment'>
                 <div className='usernewcomment'>
