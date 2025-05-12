@@ -3,7 +3,8 @@ import morgan from 'morgan';
 import cors from 'cors';
 import helmet from 'helmet'
 import publicationRoute from '../src/publications/publication_routes.js'
-
+import userRoute from "../src/user/user_routes.js"
+import commentRoute from "../src/comments/comment_routes.js"
 const configs = (app)=>{
     app.use(express.json())
     app.use(express.urlencoded({extended:false}))
@@ -14,6 +15,8 @@ const configs = (app)=>{
 
 const routes = (app)=>{
     app.use(publicationRoute)
+    app.use(userRoute)
+    app.use(commentRoute)
 }
 
 export const initServer = ()=>{

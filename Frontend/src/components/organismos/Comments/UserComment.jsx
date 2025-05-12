@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-
-export const UserComment = () => {
+import dayjs from "dayjs"
+export const UserComment = ({data}) => {
+    console.log(data);
+    const date = dayjs(data?.createdAt).format("MMM DD, YYYY")
+    
   return (
     <Container>
         <div className='detailcomment'>
-            <img className='detailcomment_img' src="https://res.cloudinary.com/dtmwybty7/image/upload/v1746818461/1_V4iaGbN6rNaBa998EninKQ_iopjpr.png" alt="" />
+            <img className='detailcomment_img' src="https://res.cloudinary.com/dtmwybty7/image/upload/v1747017173/avatar_profile_sg4t3n.png" alt="" />
             <div className='profile'>
-                <span className='profile_name'>Francout</span>
-                <span className='profile_date'>March 6, 2025</span>
+                <span className='profile_name'>{data?.user?.name}</span>
+                <span className='profile_date'>{date}</span>
             </div>
         </div>
         <div className='comment'>
-            <p className='comment_title'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, doloribus asperiores minima, placeat distinctio dolorum nostrum consequuntur atque fugiat molestias consectetur rem nobis ullam odit ratione aperiam ut excepturi! Id!</p>
+            <p className='comment_title'>{data?.comment}</p>
         </div>
     </Container>
   )

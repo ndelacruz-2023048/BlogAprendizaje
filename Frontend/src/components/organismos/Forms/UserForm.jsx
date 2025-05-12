@@ -4,15 +4,30 @@ import {Icon} from '@iconify/react'
 import logoRegister from "../../../assets/logoRegister.png"
 import { useCommentStore } from '../../../../stores/CommentStore'
 import {useForm} from "react-hook-form"
+import { useUserStore } from '../../../../stores/UserStore'
 export const UserForm = () => {
 const {setIsFormCommentOpen} = useCommentStore()
 const {handleSubmit,register,formState:{errors}} = useForm()
 
+const {createUser} = useUserStore()
 
-const handleFormSubmit = (data)=>{
-    console.log(data);
-    
+const handleFormSubmit =async (data)=>{
+    const  user = {
+        name:data.name,
+        username:data.username
+    }
+    const userSaved = await createUser(user)
+    const userLocalstorage = {
+        id:userSaved?.responseJSON?.data?._id,
+        name:userSaved?.responseJSON?.data?.name,
+        username:userSaved?.responseJSON?.data?.username
+    }
+    localStorage.setItem("userblog",JSON.stringify(userLocalstorage))
+    setIsFormCommentOpen()
 }
+
+
+
   return (
     <Container>
         <div className='containerform'>
