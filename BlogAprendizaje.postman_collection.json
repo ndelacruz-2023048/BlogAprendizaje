@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "6ae3633f-edc5-4853-988f-e28baf2c39ea",
+		"name": "BlogAprendizaje",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37956955"
+	},
+	"item": [
+		{
+			"name": "Publications",
+			"item": [
+				{
+					"name": "NewPublication",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "titlePublication",
+									"value": "Creando Interfaces Modernas con React y Tailwind CSS",
+									"type": "text"
+								},
+								{
+									"key": "shortDescription",
+									"value": "Aprende a construir interfaces rápidas, responsivas y atractivas combinando el poder de React con la simplicidad de Tailwind.",
+									"type": "text"
+								},
+								{
+									"key": "imagePublication",
+									"type": "file",
+									"src": "/C:/Users/neryd/Desktop/Fullstack/01-IMAGES/_492898d0-cbc4-4796-8bcc-7426bfb16cd5.jpeg"
+								},
+								{
+									"key": "author",
+									"value": "Nery de la Cruz",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "React es una de las bibliotecas más populares para construir interfaces de usuario, y cuando se combina con Tailwind CSS, el desarrollo frontend se vuelve más ágil y eficiente. Tailwind ofrece clases utilitarias que permiten diseñar sin salir del HTML. En este artículo veremos cómo configurar un proyecto con Vite, React y Tailwind, y construiremos una interfaz tipo dashboard en minutos.",
+									"type": "text"
+								},
+								{
+									"key": "typeClass",
+									"value": "tecnologia",
+									"type": "text"
+								},
+								{
+									"key": "datePublication",
+									"value": "2025-01-19T00:00:00Z",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/publication/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"publication",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AllPublications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/publication",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"publication"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FilteredPublications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/publication/filter?typeClass=taller&datePublication=asc&datePublication=desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"publication",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "typeClass",
+									"value": "taller"
+								},
+								{
+									"key": "datePublication",
+									"value": "asc"
+								},
+								{
+									"key": "datePublication",
+									"value": "desc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PublicationById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:2636/publicationbyid/6820f8e2c28f5c15d1bdf431",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"publicationbyid",
+								"6820f8e2c28f5c15d1bdf431"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "NewUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "juanito",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "jni596",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "NewComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user",
+									"value": "6821519c9f9a1f4c4c66fb3b",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Es un tema interesante",
+									"type": "text"
+								},
+								{
+									"key": "publication",
+									"value": "6821315ca413527e67c33c3b",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2636/comment/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"comment",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FindCommentByPublications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2636/comment/6821315ca413527e67c33c3f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2636",
+							"path": [
+								"comment",
+								"6821315ca413527e67c33c3f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
